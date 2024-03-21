@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sorteo.Infrastructure", "So
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sorteo.Application", "Sorteo.Application\Sorteo.Application.csproj", "{A515F60E-33E1-4702-B85D-C3B7F7510859}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sorteo.API", "Sorteo.API\Sorteo.API.csproj", "{22062252-526A-4F0C-AF15-8FDE25021577}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A515F60E-33E1-4702-B85D-C3B7F7510859}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A515F60E-33E1-4702-B85D-C3B7F7510859}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A515F60E-33E1-4702-B85D-C3B7F7510859}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22062252-526A-4F0C-AF15-8FDE25021577}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22062252-526A-4F0C-AF15-8FDE25021577}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22062252-526A-4F0C-AF15-8FDE25021577}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22062252-526A-4F0C-AF15-8FDE25021577}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
