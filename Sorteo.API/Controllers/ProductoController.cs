@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Sorteo.Application.Services;
 using Sorteo.Domain.Interfaces;
 using Sorteo.Domain.Models;
-using Microsoft.AspNetCore.Authentication;
 
 
 namespace Sorteo.API.Controllers
@@ -15,7 +12,7 @@ namespace Sorteo.API.Controllers
 
     public class ProductoController : ControllerBase
     {
-        //private readonly IApiKeyRepository _apiKeyService;
+       
         private readonly IProductoRepository _productoService;
 
         public ProductoController(IProductoRepository productoService)

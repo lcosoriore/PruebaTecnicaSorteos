@@ -1,9 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Http;
-using System;
-using System.Threading.Tasks;
-
-namespace Sorteo.API.Middleware
+﻿namespace Sorteo.API.Middleware
 {
     public class ApiKeyMiddleware
     {

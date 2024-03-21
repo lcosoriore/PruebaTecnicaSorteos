@@ -8,17 +8,14 @@ namespace Sorteo.API.Controllers
     [Route("api/[controller]")]
     public class AsignacionController : ControllerBase
     {
-       // private readonly IApiKeyRepository _apiKeyService;
         private readonly AsignacionService _asignacionService;
 
         public AsignacionController(AsignacionService asignacionService)
         {
-            //_apiKeyService = apiKeyService;
             _asignacionService = asignacionService;
         }
 
         [HttpPost]
-        //[AuthorizeApiKey]
         public async Task<ActionResult<Asignacion>> AsignarNumero([FromBody] AsignacionDto asignacionDto)
         {
             try

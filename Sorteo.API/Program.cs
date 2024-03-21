@@ -16,14 +16,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-// Configurar la conexi�n de base de datos
+// Configurar la conexion de base de datos
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-// Registrar ApplicationDbContext en el contenedor de inyecci�n de dependencias
+// Registrar ApplicationDbContext en el contenedor de inyeccion de dependencias
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-// Registrar servicios de aplicaci�n y de infraestructura
+// Registrar servicios de aplicacion y de infraestructura
 
 builder.Services.AddScoped<ProductoService>();
 builder.Services.AddScoped<AsignacionService>();
