@@ -11,4 +11,13 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sorteo.Application\Sorteo.Application.csproj" />
+    <ProjectReference Include="..\Sorteo.Infrastructure\Sorteo.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

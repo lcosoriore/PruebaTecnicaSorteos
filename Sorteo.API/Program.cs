@@ -1,8 +1,29 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Sorteo.Application.Services;
+using Sorteo.Domain.Interfaces;
+using Sorteo.Infrastructure.Data;
+using Sorteo.Infrastructure.Data.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+// Configurar la conexi�n de base de datos
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+// Registrar ApplicationDbContext en el contenedor de inyecci�n de dependencias
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(connectionString));
+
+// Registrar servicios de aplicaci�n y de infraestructura
+//builder.Services.AddScoped<ApiKeyService>();
+builder.Services.AddScoped<ProductoService>();
+builder.Services.AddScoped<AsignacionService>();
+builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
+builder.Services.AddScoped<IAsignacionRepository, AsignacionRepository>();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -17,7 +38,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+//app.UseMiddleware<ApiKeyMiddleware>();
 app.UseAuthorization();
 
 app.MapControllers();
