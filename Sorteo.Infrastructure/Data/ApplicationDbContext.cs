@@ -17,14 +17,12 @@ namespace Sorteo.Infrastructure.Data
 
         public DbSet<Producto> Productos { get; set; }
         public DbSet<Asignacion> Asignaciones { get; set; }
-        public DbSet<ApiKey> Apikeys { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Producto>().ToTable("Producto");
             modelBuilder.Entity<Asignacion>().ToTable("Asignacion");
-            modelBuilder.Entity<ApiKey>().ToTable("ApiKey");
 
         }
     }

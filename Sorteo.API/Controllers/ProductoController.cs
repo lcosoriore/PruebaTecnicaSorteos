@@ -1,13 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Sorteo.Application.Services;
 using Sorteo.Domain.Interfaces;
 using Sorteo.Domain.Models;
+using Microsoft.AspNetCore.Authentication;
+
 
 namespace Sorteo.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize(AuthenticationSchemes = "Api-Key")]
+
     public class ProductoController : ControllerBase
     {
         //private readonly IApiKeyRepository _apiKeyService;
@@ -19,7 +24,6 @@ namespace Sorteo.API.Controllers
         }
 
         [HttpPost]
-        //[AuthorizeApiKey]
         public async Task<ActionResult<Producto>> CrearProducto([FromBody] Producto productoDto)
         {
             try

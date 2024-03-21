@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sorteo.Application", "Sorte
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sorteo.API", "Sorteo.API\Sorteo.API.csproj", "{22062252-526A-4F0C-AF15-8FDE25021577}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSorteo", "TestSorteo\TestSorteo.csproj", "{908069E7-B0F2-4D34-AC50-F80B6957A215}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DatabaseSorteo", "DatabaseSorteo\DatabaseSorteo.sqlproj", "{D33E44BC-DC78-4376-9744-311FAE8F242F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,16 @@ Global
 		{22062252-526A-4F0C-AF15-8FDE25021577}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22062252-526A-4F0C-AF15-8FDE25021577}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22062252-526A-4F0C-AF15-8FDE25021577}.Release|Any CPU.Build.0 = Release|Any CPU
+		{908069E7-B0F2-4D34-AC50-F80B6957A215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{908069E7-B0F2-4D34-AC50-F80B6957A215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{908069E7-B0F2-4D34-AC50-F80B6957A215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{908069E7-B0F2-4D34-AC50-F80B6957A215}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D33E44BC-DC78-4376-9744-311FAE8F242F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D33E44BC-DC78-4376-9744-311FAE8F242F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D33E44BC-DC78-4376-9744-311FAE8F242F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D33E44BC-DC78-4376-9744-311FAE8F242F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D33E44BC-DC78-4376-9744-311FAE8F242F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D33E44BC-DC78-4376-9744-311FAE8F242F}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
