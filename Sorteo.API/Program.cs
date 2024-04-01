@@ -27,19 +27,23 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddScoped<ProductoService>();
 builder.Services.AddScoped<AsignacionService>();
+builder.Services.AddScoped<ClienteService>();
+builder.Services.AddScoped<UsuarioService>();
 builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
 builder.Services.AddScoped<IAsignacionRepository, AsignacionRepository>();
+builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
-// Configurar autenticación
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = "ApiKey";
-    options.DefaultChallengeScheme = "ApiKey";
-}).AddApiKeyInHeader("ApiKey", options =>
-{
-    options.Realm = "Authorization";
-    options.KeyName = "Api-Key";
-});
+//// Configurar autenticación
+//builder.Services.AddAuthentication(options =>
+//{
+//    options.DefaultAuthenticateScheme = "ApiKey";
+//    options.DefaultChallengeScheme = "ApiKey";
+//}).AddApiKeyInHeader("ApiKey", options =>
+//{
+//    options.Realm = "Authorization";
+//    options.KeyName = "Api-Key";
+//});
 
 // Agregar autorización
 builder.Services.AddAuthorization();
@@ -61,7 +65,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseMiddleware<ApiKeyMiddleware>("jPQ4tqcTNf8XwwCfLUrFn7CrmxGcanFWvXZG0JoU6Kn31GjZAjwnCc0Qzf0AqLMz");
+//app.UseMiddleware<ApiKeyMiddleware>("jPQ4tqcTNf8XwwCfLUrFn7CrmxGcanFWvXZG0JoU6Kn31GjZAjwnCc0Qzf0AqLMz");
 
 
 app.MapControllers();

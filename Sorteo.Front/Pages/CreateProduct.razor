@@ -1,0 +1,104 @@
+﻿@page "/createProduct"
+@using Microsoft.AspNetCore.Mvc;
+@using Sorteo.Front.Data
+
+
+<PageTitle>Creacion Producto</PageTitle>
+
+<h1>Creacion de producto</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="mb-3">
+            <label for="productName" class="form-label">Nombre:</label>
+            <input type="text" class="form-control" id="productName" @bind="productName" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="mb-3">
+            <label for="productDescription" class="form-label">Descripción:</label>
+            <input type="text" class="form-control" id="productDescription" @bind="productDescription" />
+        </div>
+    </div>
+</div>
+
+
+<button class="btn btn-primary" @onclick="CreateProducts">Crear Producto</button>
+<br />
+<br />
+<br />
+@if (productModel == null)
+{
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var model in productModel)
+            {
+                <tr>
+                    <td>@model.Id</td>
+                    <td>@model.Nombre</td>
+                    <td>@model.Descripcion</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private string productName;
+    private string productDescription;
+    private ProductModel[]? productModel;
+    [Inject]
+    private HttpClient httpClient { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadProducts();
+    }
+    private async Task LoadProducts()
+    {
+        var response = await httpClient.GetAsync("https://localhost:7231/api/Producto");
+        if (response.IsSuccessStatusCode)
+        {
+            productModel = await response.Content.ReadFromJsonAsync<ProductModel[]>();
+        }
+        else
+        {
+            Console.WriteLine($"Error al crear el producto: {response.StatusCode}");
+        }
+    }
+    private async Task CreateProducts()
+    {
+        try
+        {
+            var productoDto = new ProductModel { Nombre = productName, Descripcion = productDescription };
+
+            var response = await httpClient.PostAsJsonAsync("https://localhost:7231/api/Producto", productoDto);
+
+            if (response.IsSuccessStatusCode)
+            {
+                productName = ""; 
+                productDescription = ""; 
+                await LoadProducts();
+            }
+            else
+            {
+                Console.WriteLine($"Error al crear el producto: {response.StatusCode}");
+            }
+        }
+        catch (Exception ex)
+        {
+
+            Console.WriteLine($"Error al crear el producto: {ex.Message}");
+        }
+    }
+}
