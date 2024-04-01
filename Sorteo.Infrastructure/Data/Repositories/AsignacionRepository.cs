@@ -40,9 +40,9 @@ namespace Sorteo.Infrastructure.Data.Repositories
         /// <param name="idCliente">El ID del cliente asociado a la asignación.</param>
         /// <param name="idUsuario">El ID del usuario asociado a la asignación.</param>
         /// <returns>True si la asignación es válida, False si no.</returns>
-        public async Task<bool> IsValidAsignacion(int numeroAsignacion, int idCliente, int idUsuario)
+        public async Task<bool> IsValidAsignacion(int numeroAsignacion, int idCliente, int idUsuario, int idProducto)
         {
-            return await _context.Asignaciones.AnyAsync(k => k.Numero == numeroAsignacion && k.ClienteId == idCliente && k.UsuarioId == idUsuario);
+            return await _context.Asignaciones.AnyAsync(k => k.Numero == numeroAsignacion && k.ClienteId == idCliente && k.UsuarioId == idUsuario && k.ProductoId==idProducto);
         }
     }
 }

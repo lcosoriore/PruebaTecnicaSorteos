@@ -37,7 +37,7 @@ namespace Sorteo.Application.Services
             {
                 numeroAsignado = GenerarNumeroAleatorio();
             }
-            while (!ValidarNumero(numeroAsignado) || await _asignacionRepository.IsValidAsignacion(Convert.ToInt32(numeroAsignado), asignacionDto.ClienteId, asignacionDto.UsuarioId));
+            while (!ValidarNumero(numeroAsignado) || await _asignacionRepository.IsValidAsignacion(Convert.ToInt32(numeroAsignado), asignacionDto.ClienteId, asignacionDto.UsuarioId, asignacionDto.ProductoId));
 
             // Crear la asignación y persistirla en la base de datos
             var asignacion = new Asignacion

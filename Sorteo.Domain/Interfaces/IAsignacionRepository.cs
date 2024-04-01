@@ -18,5 +18,5 @@ public interface IAsignacionRepository
     /// <param name="idCliente">El ID del cliente asociado a la asignación.</param>
     /// <param name="idUsuario">El ID del usuario asociado a la asignación.</param>
     /// <returns>Una tarea que representa la operación asincrónica de validación. Retorna true si la asignación es válida, de lo contrario, false.</returns>
-    Task<bool> IsValidAsignacion(int numeroAsignacion, int idCliente, int idUsuario);
+    Task<bool> IsValidAsignacion(int numeroAsignacion, int idCliente, int idUsuario, int idProducto);
 }
